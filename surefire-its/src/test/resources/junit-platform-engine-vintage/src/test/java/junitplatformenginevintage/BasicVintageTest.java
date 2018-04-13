@@ -1,4 +1,4 @@
-package junit4;
+package junitplatformenginevintage;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -25,7 +25,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class BasicTest
+public class BasicVintageTest
 {
     private static boolean tearDownCalled = false;
 
@@ -52,12 +52,12 @@ public class BasicTest
     {
         Assert.assertTrue( "setUp was not called", setUpCalled );
     }
-  
+
 
     @AfterClass
     public static void oneTimeTearDown()
     {
-        
+        Assert.assertTrue( "tearDown was not called", tearDownCalled );
     }
 
 }

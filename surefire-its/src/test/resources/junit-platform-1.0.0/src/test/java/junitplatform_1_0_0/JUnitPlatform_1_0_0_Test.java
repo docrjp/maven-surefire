@@ -1,4 +1,4 @@
-package junit4;
+package junitplatform_1_0_0;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -19,45 +19,19 @@ package junit4;
  * under the License.
  */
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class BasicTest
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
+
+class JUnitPlatform_1_0_0_Test
 {
-    private static boolean tearDownCalled = false;
-
-    private boolean setUpCalled = false;
-
-    @Before
-    public void setUp()
-    {
-        setUpCalled = true;
-        tearDownCalled = false;
-        System.out.println( "Called setUp" );
-    }
-
-    @After
-    public void tearDown()
-    {
-        setUpCalled = false;
-        tearDownCalled = true;
-        System.out.println( "Called tearDown" );
-    }
 
     @Test
-    public void testSetUp()
+    void test(TestInfo info)
     {
-        Assert.assertTrue( "setUp was not called", setUpCalled );
+        assertEquals( "test(TestInfo)", info.getDisplayName(), "display name mismatch" );
     }
-  
 
-    @AfterClass
-    public static void oneTimeTearDown()
-    {
-        
-    }
 
 }

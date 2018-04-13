@@ -17,27 +17,33 @@
   ~ specific language governing permissions and limitations
   ~ under the License.
   -->
+
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.apache.maven.plugins.surefire</groupId>
-    <artifactId>junit4</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <name>Test for JUnit 4</name>
+    <artifactId>junit-platform-engine-vintage</artifactId>
+    <version>1.0</version>
+    <name>Test for JUnit 5: Platform + Vintage</name>
 
     <properties>
-        <junitVersion>4.12</junitVersion>
-        <maven.compiler.source>1.7</maven.compiler.source>
-        <maven.compiler.target>1.7</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
+    <!--
+        Declare "junit-vintage-engine" dependency because the
+        Vintage Engine is needed at test runtime. Artifacts
+        needed for test compilation, like "junit:junit",
+        are pulled-in via transitive dependency resolution.
+    -->
     <dependencies>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine</artifactId>
+            <version>5.2.0</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -51,5 +57,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

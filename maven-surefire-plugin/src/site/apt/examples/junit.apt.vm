@@ -71,6 +71,8 @@ Using JUnit
    If nothing is configured, Surefire detects which JUnit version to use by the following algorithm:
 
 +---+
+if the JUnit Platform Engine is present in the project
+    use junit-platform
 if the JUnit version in the project >= 4.7 and the parallel attribute has ANY value
     use junit47 provider
 if JUnit >= 4.0 is present
